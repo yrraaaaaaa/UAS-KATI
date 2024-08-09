@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+  <title>
+    Struk Pesanan Anda
+  </title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span>
+            Struk Pesanan Anda
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
+        </button>
+
+        <div class="collapse navbar-collapse innerpage_navbar" id="navbarSupportedContent">
+          <ul class="navbar-nav  ">
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">Beranda <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">
+                Belanja
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="why.html">
+                Why Us
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="testimonial.html">
+                Testimoni
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Input Transaksi</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="struk.html">Pesanan Saya</a>
+            </li>
+          </ul>
+          <div class="user_option">
+            <a href="">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>
+                Login
+              </span>
+            </a>
+            <a href="">
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            </a>
+            <form class="form-inline ">
+              <button class="btn nav_search-btn" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- end header section -->
+
+  </div>
+  <!-- end hero area -->
+
+  <!-- shop section -->
+
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h3>
+         Pembayaran Diproses
+        </h3>
+        <div class="container">
+          <div class="content">
+            <div class="summary">
+              <p><strong>Nama:</strong> <span id="nama"></span></p>
+              <p><strong>Email:</strong> <span id="email"></span></p>
+              <p><strong>Phone:</strong> <span id="phone"></span></p>
+              <p><strong>Alamat:</strong> <span id="alamat"></span></p>
+              <p><strong>Jumlah:</strong> <span id="jumlah"></span></p>
+              <p><strong>Barang:</strong> <span id="barang"></span></p>
+              <p><strong>Metode Pembayaran:</strong> <span id="metode"></span></p>
+            </div>
+            <p><strong>Total Pembayaran:</strong> <span id="totalPembayaran"></span></p>
+            <p>Pesanan Anda akan segera diproses. Silakan tunggu konfirmasi dari kami melalui email atau telepon.</p>
+          </div>
+        </div>
+      <div class="btn-box">
+        <a href="">
+          Klik Butuh Bantuan jika dalam 1x24 jam pembayaran belum berhasil.
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end shop section -->
+
+<!-- Script untuk mengambil nilai dari parameter URL dan menampilkan data transaksi -->
+<script>
+  // Ambil parameter dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Ambil nilai dari setiap parameter
+  const nama = urlParams.get('nama');
+  const email = urlParams.get('email');
+  const phone = urlParams.get('phone');
+  const alamat = urlParams.get('alamat');
+  const barang = urlParams.get('barang');
+  const jumlah = urlParams.get('jumlah');
+  const metode= urlParams.get('metode');
+
+  // Isi nilai pada elemen HTML
+  document.getElementById('nama').innerText = nama;
+  document.getElementById('email').innerText = email;
+  document.getElementById('phone').innerText = phone;
+  document.getElementById('alamat').innerText = alamat;
+  document.getElementById('barang').innerText = barang;
+  document.getElementById('jumlah').innerText = jumlah;
+  document.getElementById('metode').innerText = metode;
+
+  // Hitung total pembayaran berdasarkan barang yang dipilih
+  let totalPembayaran = 0;
+  if (barang === 'Mawar Putih') {
+    totalPembayaran = 350000 * jumlah;
+  } else if (barang === 'Mawar Merah') {
+    totalPembayaran = 395000 * jumlah;
+  } else if (barang === 'Edelweis') {
+    totalPembayaran = 595000 * jumlah;
+  } else if (barang === 'Mix Flower') {
+    totalPembayaran = 475000 * jumlah;
+  } else if (barang === 'Mix Puff') {
+    totalPembayaran = 675000 * jumlah;
+  } else if (barang === 'Lovely Puff S') {
+    totalPembayaran = 593000 * jumlah;
+  } else if (barang === "Lily's Pink") {
+    totalPembayaran = 450000 * jumlah;
+  } 
+
+  document.getElementById('totalPembayaran').innerText = `Rp${totalPembayaran}`;
+</script>
+
+  <!-- info section -->
+
+  <section class="info_section  layout_padding2-top">
+    <div class="social_container">
+      <div class="social_box">
+        <a href="">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="info_container ">
+      <div class="container">
+        <div class="row">
+         <div class="col-md-6 col-lg-3">
+            <h6>
+             Tentang Kami 
+            </h6>
+            <p>
+              Visi
+            </p>
+            <p>
+              Menjadi perusahaan perdagangan nasional berkelas dunia terpercaya dan terkemuka.
+            </p>
+            <p>
+              Misi
+            <p>
+              Memberikan produk berkualitas dengan harga kompetitif dan bermanfaat demi memastikan kepuasan pelanggan dan membina hubungan baik dengan mitra berkelanjutan.
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="info_form ">
+              <h5>
+                Newsletter
+              </h5>
+              <form action="#">
+                <input type="email" placeholder="Enter your email">
+                <button>
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              Kontak Kami
+            </h6>
+            <div class="info_link-box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span> Jalan Tubagus Ismail Dalam, kota Bandung </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span> 087778966195</span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span> nuraaa@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer section -->
+    <footer class=" footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> Star Blossom. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+
+  </section>
+
+  <!-- end info section -->
+
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>
